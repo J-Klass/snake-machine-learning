@@ -1,4 +1,4 @@
-Config = {
+game_config = {
     "game": {"caption": "Snake", "height": 550, "width": 500},
     "snake": {"height": 20, "width": 20},
     "apple": {"width": 20, "height": 20},

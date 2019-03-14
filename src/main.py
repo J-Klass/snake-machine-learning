@@ -6,7 +6,7 @@ from keras.utils import to_categorical
 
 from game.game import initialize_game, display, get_record
 from game.game_classes import Game
-from game.game_config import Config
+from game.game_config import game_config
 from ml.DQN import DQNAgent
 
 
@@ -55,7 +55,7 @@ def main():
             agent.remember(state_old, final_move, reward, state_new, game.crash)
             record = get_record(game.score, record)
             display(snake1, apple1, game, record)
-            pygame.time.wait(Config["speed"])
+            pygame.time.wait(game_config["speed"])
 
         agent.replay_new(agent.memory)
         counter_games += 1

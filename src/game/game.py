@@ -1,6 +1,6 @@
 import pygame
 
-from game.game_config import Config
+from game.game_config import game_config
 
 
 def eat(snake, apple, game):
@@ -20,10 +20,14 @@ def get_record(score, record):
 def display_ui(game, score, record):
     myfont = pygame.font.SysFont("arial", 20)
     myfont_bold = pygame.font.SysFont("arial", 20, True)
-    text_score = myfont.render("SCORE: ", True, Config["colors"]["black"])
-    text_score_number = myfont_bold.render(str(score), True, Config["colors"]["black"])
-    text_highest = myfont.render("HIGHEST SCORE: ", True, Config["colors"]["black"])
-    text_highest_number = myfont_bold.render(str(record), True, Config["colors"]["black"])
+    text_score = myfont.render("SCORE: ", True, game_config["colors"]["black"])
+    text_score_number = myfont_bold.render(
+        str(score), True, game_config["colors"]["black"]
+    )
+    text_highest = myfont.render("HIGHEST SCORE: ", True, game_config["colors"]["black"])
+    text_highest_number = myfont_bold.render(
+        str(record), True, game_config["colors"]["black"]
+    )
     game.game_display.blit(text_score, (20, 520))
     game.game_display.blit(text_score_number, (80, 520))
     game.game_display.blit(text_highest, (120, 520))
@@ -32,7 +36,7 @@ def display_ui(game, score, record):
 
 
 def display(snake, apple, game, record):
-    game.game_display.fill(Config["colors"]["white"])
+    game.game_display.fill(game_config["colors"]["white"])
     display_ui(game, game.score, record)
     snake.display_snake(snake.position[-1][0], snake.position[-1][1], snake.apple, game)
     apple.display_apple(apple.x_apple, apple.y_apple, game)
