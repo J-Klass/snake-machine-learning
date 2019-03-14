@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from operator import add
 
-from ml import ml_config
+from ml.ml_config import ml_config
 
 
 class DQNAgent(object):
