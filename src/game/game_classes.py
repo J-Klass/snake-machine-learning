@@ -108,10 +108,10 @@ class Apple(object):
         self.image = pygame.image.load("img/apple.png")
 
     def apple_coord(self, game, player):
-        x_rand = randint(20, game.game_width - 40)
-        self.x_apple = x_rand - x_rand % 20
-        y_rand = randint(20, game.game_height - 40)
-        self.y_apple = y_rand - y_rand % 20
+        x_rand = randint(Config["apple"]["width"], game.game_width - 40)
+        self.x_apple = x_rand - x_rand % Config["apple"]["width"]
+        y_rand = randint(Config["apple"]["hight"], game.game_height - 40)
+        self.y_apple = y_rand - y_rand % Config["apple"]["hight"]
         if [self.x_apple, self.y_apple] not in player.position:
             return self.x_apple, self.y_apple
         else:
