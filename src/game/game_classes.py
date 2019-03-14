@@ -16,7 +16,7 @@ class Game:
         self.game_display = pygame.display.set_mode(
             (Config["game"]["width"], Config["game"]["height"])
         )
-        self.bg = pygame.image.load("img/background.png")
+        self.bg = pygame.image.load("game/img/background.png")
         self.crash = False
         self.snake = Snake(self)
         self.apple = Apple()
@@ -33,7 +33,7 @@ class Snake(object):
         self.position.append([self.x, self.y])
         self.apple = 1
         self.eaten = False
-        self.image = pygame.image.load("img/snake_body.png")
+        self.image = pygame.image.load("game/img/snake_body.png")
         self.x_change = Config["snake"]["width"]
         self.y_change = 0
 
@@ -105,18 +105,18 @@ class Apple(object):
     def __init__(self):
         self.x_apple = 240
         self.y_apple = 200
-        self.image = pygame.image.load("img/apple.png")
+        self.image = pygame.image.load("game/img/apple.png")
 
     def apple_coord(self, game, player):
         x_rand = randint(Config["apple"]["width"], game.game_width - 40)
         self.x_apple = x_rand - x_rand % Config["apple"]["width"]
-        y_rand = randint(Config["apple"]["hight"], game.game_height - 40)
-        self.y_apple = y_rand - y_rand % Config["apple"]["hight"]
+        y_rand = randint(Config["apple"]["height"], game.game_height - 40)
+        self.y_apple = y_rand - y_rand % Config["apple"]["height"]
         if [self.x_apple, self.y_apple] not in player.position:
             return self.x_apple, self.y_apple
         else:
             self.apple_coord(game, player)
 
     def display_apple(self, x, y, game):
-        game.gameDisplay.blit(self.image, (x, y))
+        game.game_display.blit(self.image, (x, y))
         update_screen()

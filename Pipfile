@@ -9,6 +9,8 @@ verify_ssl = true
 pre-commit = "*"
 pygame = "*"
 keras = "*"
+pandas = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.7"

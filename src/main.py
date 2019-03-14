@@ -7,10 +7,7 @@ from keras.utils import to_categorical
 from game.game import initialize_game, display, get_record
 from game.game_classes import Game
 from game.game_config import Config
-
-
-class DQNAgent(object):
-    pass
+from ml.DQN import DQNAgent
 
 
 def main():
@@ -45,7 +42,7 @@ def main():
                 final_move = to_categorical(np.argmax(prediction[0]), num_classes=3)
 
             # Perform new move and get new state
-            snake1.do_move(final_move, snake1.x, snake1.y, game, apple1, agent)
+            snake1.do_move(final_move, snake1.x, snake1.y, game, apple1)
             state_new = agent.get_state(game, snake1, apple1)
 
             # Set reward for the new state
