@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 pre-commit = "*"
+pygame = "*"
+keras = "*"
 
 [requires]
 python_version = "3.7"
