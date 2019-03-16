@@ -1,10 +1,13 @@
 from random import randint
 import pygame
+import os
 
-from game.game_config import game_config
+from snake_machine_learning.game.game_config import game_config
 import numpy as np
 
-from game.game import update_screen, eat
+from snake_machine_learning.game.game import update_screen, eat
+
+path = os.path.dirname(os.path.abspath(__file__))
 
 
 class Game:
@@ -16,7 +19,7 @@ class Game:
         self.game_display = pygame.display.set_mode(
             (game_config["game"]["width"], game_config["game"]["height"])
         )
-        self.bg = pygame.image.load("game/img/background.png").convert_alpha()
+        self.bg = pygame.image.load(path + "/img/background.png").convert_alpha()
         self.crash = False
         self.snake = Snake(self)
         self.apple = Apple()
@@ -33,7 +36,7 @@ class Snake(object):
         self.position.append([self.x, self.y])
         self.apple = 1
         self.eaten = False
-        self.image = pygame.image.load("game/img/snake_body.png").convert_alpha()
+        self.image = pygame.image.load(path + "/img/snake_body.png").convert_alpha()
         self.x_change = game_config["snake"]["width"]
         self.y_change = 0
 
@@ -105,7 +108,7 @@ class Apple(object):
     def __init__(self):
         self.x_apple = 240
         self.y_apple = 200
-        self.image = pygame.image.load("game/img/apple.png").convert_alpha()
+        self.image = pygame.image.load(path + "/img/apple.png").convert_alpha()
 
     def apple_coord(self, game, player):
         x_rand = randint(game_config["apple"]["width"], game.game_width - 40)

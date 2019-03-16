@@ -1,6 +1,6 @@
 import pygame
 
-from game.game_config import game_config
+from snake_machine_learning.game.game_config import game_config
 
 
 def eat(snake, apple, game):

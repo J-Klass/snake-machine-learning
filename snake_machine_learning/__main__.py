@@ -4,10 +4,10 @@ import numpy as np
 import pygame
 from keras.utils import to_categorical
 
-from game.game import initialize_game, display, get_record
-from game.game_classes import Game
-from game.game_config import game_config
-from ml.DQN import DQNAgent
+from snake_machine_learning.game.game import initialize_game, display, get_record
+from snake_machine_learning.game.game_classes import Game
+from snake_machine_learning.game.game_config import game_config
+from snake_machine_learning.ml.DQN import DQNAgent
 
 
 def main():
