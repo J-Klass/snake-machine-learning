@@ -11,6 +11,7 @@ pygame = "*"
 keras = "*"
 pandas = "*"
 tensorflow = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"
