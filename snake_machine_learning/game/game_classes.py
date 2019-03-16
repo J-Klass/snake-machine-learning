@@ -17,7 +17,7 @@ class Game:
         self.game_width = game_config["game"]["width"]
         self.game_height = game_config["game"]["height"]
         self.game_display = pygame.display.set_mode(
-            (game_config["game"]["width"], game_config["game"]["height"])
+            (game_config["game"]["width"], game_config["game"]["height"] + 60)
         )
         self.bg = pygame.image.load(path + "/img/background.png").convert_alpha()
         self.crash = False
