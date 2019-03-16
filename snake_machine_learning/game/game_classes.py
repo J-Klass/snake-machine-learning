@@ -1,11 +1,11 @@
-from random import randint
-import pygame
 import os
+from random import randint
 
-from snake_machine_learning.game.game_config import game_config
 import numpy as np
+import pygame
 
-from snake_machine_learning.game.game import update_screen, eat
+from snake_machine_learning.game.game import eat, update_screen
+from snake_machine_learning.game.game_config import game_config
 
 path = os.path.dirname(os.path.abspath(__file__))
 

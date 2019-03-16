@@ -4,7 +4,7 @@ import numpy as np
 import pygame
 from keras.utils import to_categorical
 
-from snake_machine_learning.game.game import initialize_game, display, get_record
+from snake_machine_learning.game.game import display, get_record, initialize_game
 from snake_machine_learning.game.game_classes import Game
 from snake_machine_learning.game.game_config import game_config
 from snake_machine_learning.ml.DQN import DQNAgent

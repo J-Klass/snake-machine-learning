@@ -1,10 +1,11 @@
-from keras.optimizers import Adam
-from keras.models import Sequential
-from keras.layers.core import Dense, Dropout
 import random
+from operator import add
+
 import numpy as np
 import pandas as pd
-from operator import add
+from keras.layers.core import Dense, Dropout
+from keras.models import Sequential
+from keras.optimizers import Adam
 
 from snake_machine_learning.ml.ml_config import ml_config
 
