@@ -25,8 +25,12 @@ class DQNAgent(object):
         self.memory = []
 
     def get_state(self, game, snake, apple):
-        """
-        Create all the input features for the Agent. Current state of the game.
+        """Create all the input features for the Agent. Current state of the game.
+
+        :param game: Game object
+        :param snake: Snake object
+        :param apple: Apple object
+        :return: array of 1s and 0s for the current state of the game
         """
 
         state = [
@@ -157,8 +161,11 @@ class DQNAgent(object):
         return np.asarray(state)
 
     def set_reward(self, snake, crash):
-        """
-        Create positive and negativ reward for the agent
+        """Create positive and negative reward for the agent
+
+        :param snake: Snake object
+        :param crash: Boolean variable if the snake has crashed
+        :return: Reward for the behaviour
         """
 
         self.reward = 0
@@ -172,9 +179,12 @@ class DQNAgent(object):
         return self.reward
 
     def network(self, weights=None):
+        """Model with the eleven input dimensions and 3 output dimensions for the next move.
+
+        :param weights: Import feature of the current state
+        :return: Trained model
         """
-        Model with the eleven input dimensions and 3 output dimensions for the next move.
-        """
+
         model = Sequential()
         model.add(Dense(output_dim=120, activation="relu", input_dim=11))
         model.add(Dropout(0.15))
@@ -194,9 +204,11 @@ class DQNAgent(object):
         self.memory.append((state, action, reward, next_state, done))
 
     def replay_new(self, memory):
+        """Creating new agent for next game
+
+        :param memory: Memory
         """
-        Creating new agent for next game
-        """
+
         if len(memory) > 1000:
             minibatch = random.sample(memory, 1000)
         else:
@@ -212,9 +224,15 @@ class DQNAgent(object):
             self.model.fit(np.array([state]), target_f, epochs=1, verbose=0)
 
     def train_short_memory(self, state, action, reward, next_state, done):
+        """Predict the next move
+
+        :param state: State of the game
+        :param action: Actions to be performed
+        :param reward: Reward fot the snakes behaviour
+        :param next_state: Next state
+        :param done: Done training
         """
-        Predict the next move
-        """
+
         target = reward
         if not done:
             target = reward + self.gamma * np.amax(

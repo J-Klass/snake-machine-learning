@@ -11,6 +11,9 @@ from snake_machine_learning.ml.DQN import DQNAgent
 
 
 def main():
+    """Main method to start the game and the learning process"""
+
+    # Initialize Pygame and create a new agent.
     pygame.init()
     agent = DQNAgent()
     counter_games = 0
