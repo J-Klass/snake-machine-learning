@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Snake Machine Learning</h1>
   <strong>Reinforcement Learning for the classic snake game</strong>
-  <img src="snake.gif" width="100%" alt="snake.gif">
+  <img src="snake.gif" width="50%" alt="snake.gif" style="box-shadow: 10px 10px 5px grey;">
 </div>
 
 ### Installation
